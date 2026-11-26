@@ -1,0 +1,13 @@
+[project]
+name = "galaxy_simulator"
+version = "0.0.1"
+description = "Simulate gravity-driven dynamics between stars and planets."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+dependencies = ["numpy"]
+
+[dependency-groups]
+dev = ["pytest"]
+docs = ["sphinx"]
