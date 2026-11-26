@@ -1,0 +1,9 @@
+name: galaxy_simulator
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - numpy
+  - matplotlib
+  - pytest
+  - pip
