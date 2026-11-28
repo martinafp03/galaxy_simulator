@@ -1,7 +1,6 @@
 import numpy as np
 
 
-
 class CelestialObject:
     def __init__(self, name, mass, position, velocity):
         self.name = name
