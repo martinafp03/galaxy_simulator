@@ -1,6 +1,7 @@
 import numpy as np
 from pathlib import Path
 
+
 class Galaxy:
     # maps integrator name -> method name
     INTEGRATORS = {"velocity_verlet": "_velocity_verlet_step"}
