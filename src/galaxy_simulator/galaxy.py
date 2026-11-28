@@ -1,5 +1,5 @@
 import numpy as np
-
+from pathlib import Path
 
 class Galaxy:
     # maps integrator name -> method name
@@ -64,3 +64,24 @@ class Galaxy:
     def run(self, steps):
         for _ in range(steps):
             self.step()
+
+    def run(self, steps, save_every=None, filename="out/trajectory.xyz"):
+        if save_every is None:
+            for _ in range(steps):
+                self.step()
+            return
+
+        Path(filename).parent.mkdir(parents=True, exist_ok=True)
+        with open(filename, "w") as file:
+            self.write_xyz_frame(file)
+            for i in range(1, steps + 1):
+                self.step()
+                if i % save_every == 0:
+                    self.write_xyz_frame(file)
+
+    def write_xyz_frame(self, file):
+        file.write(f"{len(self.celestial_bodies)}\n")
+        file.write(f"time={self.time}\n")
+        for celestial_body in self.celestial_bodies:
+            x, y = celestial_body.position
+            file.write(f"{celestial_body.name} {x:.6e} {y:.6e} 0.0\n")
