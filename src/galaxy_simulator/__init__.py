@@ -4,6 +4,9 @@ from importlib.metadata import version
 
 __version__ = version("galaxy_simulator")  # read from pyproject.toml
 
-from galaxy_simulator.planet import Planet
+from galaxy_simulator.CelestialObject import CelestialObject
+from galaxy_simulator.galaxy import Galaxy
 
-__all__ = ["Planet"]
+__all__ = ["CelestialObject", "Galaxy"]
+
+
